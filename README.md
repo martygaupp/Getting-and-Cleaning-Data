@@ -1,8 +1,8 @@
 # Getting-and-Cleaning-Data
 
-This is my submission for the course project for this Coursera Course
+This is my submission for the course project for the Getting and Cleaning Data Coursera Course.
 
-## Recall the four things you should have to create a tidy data set
+## Recall the four things you should have to create a tidy data set:
 1.  The raw data
 2.  A tidy data set
 3.  A code book describing each variable and its values in the tidy data set
