@@ -35,21 +35,26 @@ The final tidy data set is quite large - 180 observations of 68 variables.  It a
 
 The tidy set contains 68 variables.  The first variable represents the ID of the subject.  The second represents the activity involved in that row's data; the possible values are walking, walking upstairs, walking downstairs, sitting, standing, and laying.  The remaining 66 variables represent the mean and standard deviation (std) of the raw data in the x, y, and z directions as well as an overall mean and standard deviation of the Euclidean magnitude for the resulting three-dimensional vector of the various features, as listed below:
 <UL>
-<LI>tBodyAcc</LI>
-<LI>tGravityAcc</LI>
-<LI>tBodyAccJerk</LI>
-<LI>tBodyGyro</LI>
-<LI>tBodyGyroJerk</LI>
+<LI>BodyAcc</LI>
+<LI>GravityAcc</LI>
+<LI>BodyAccJerk</LI>
+<LI>BodyGyro</LI>
+<LI>BodyGyroJerk</LI>
 </UL>
 Every entry in the table for the last 66 variables/columns are averages (arithmetic means) of the raw data for each subject-activity combination.  With 30 subjects performing 6 activities each, the entire table contains 180 rows (records) of data.  The units of these 66 feature means are standard gravity units 'g' for all the Acc (for acceleration) columns and radians/second for all the Gyro (for gyroscope) columns.
 
 ## An explicit and exact recipe you used to go from 1 -> 2,3 - how the Script Works:
 
-1.  Read in the data <BR>
+1.  Read in the separate data files and bind them together into one big data frame<BR>
 <UL>
 <LI>read features.txt first to get the 561 feature names</LI>
-<LI>read in each train and test set and then rbind them to combine them</LI>
-<LI>cbind the 3 rbind'd sets to create one big data.frame of all the data</LI>
+<LI>read in each train and test set and then rbind (row bind) them to combine them</LI>
+<UL>
+<LI>rbind X_train.txt with X_test.txt</LI>
+<LI>rbind Y_train.txt with Y_test.txt</LI>
+<LI>rbind subject_train.txt with subject_test.txt</LI>
+</UL>
+<LI>cbind (column bind) the 3 rbind'd sets to create one big data.frame of all the data</LI>
 <UL>
 <LI>column 1 is subject</LI>
 <LI>column 2 is activity</LI>
@@ -59,6 +64,7 @@ Every entry in the table for the last 66 variables/columns are averages (arithme
 2.  Change the activity labels from numbers to descriptive words
 3.  Extract only the measurements on the mean and standard deviation for each measurement
 4.  Create the tidy data set with the average of each variable for each activity and each subject
+5.  Write out the resulting tidy data set
 
 ## Sample Output of Tidy Data Set (just a small snippet)
 
